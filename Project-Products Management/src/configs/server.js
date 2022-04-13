@@ -18,7 +18,7 @@ const server = async function callback() {
 
 
         app.listen(PORT, function callback(err) {
-            if (err) console.log("Error in server setup", err)
+            if (err) console.log(err)
             console.log("Server listening on Port", PORT)
         })
     }

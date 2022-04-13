@@ -1,4 +1,5 @@
 const pincodeValidator = require('pincode-validator');
+const mongoose= require("mongoose")
 
 
 
@@ -96,6 +97,14 @@ const isValidPincode = function (pincode) {
 
 
 
+
+const isObjectId = function (ObjectId) {
+return  mongoose.isValidObjectId(ObjectId)
+}
+
+
+
+
 module.exports = {
     isStrictString,
     isValidRequestBody,
@@ -104,7 +113,8 @@ module.exports = {
     isValidPhone,
     isValidPassword,
     isValidAddress,
-    isValidPincode
+    isValidPincode,
+    isObjectId
 }
 
 

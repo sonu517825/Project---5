@@ -85,6 +85,8 @@
 }
 ```
 
+
+
 ### POST /login
 - Allow an user to login with their email and password.
 - On a successful login attempt return the userId and a JWT token contatining the userId, exp, iat.
@@ -162,11 +164,6 @@
 
 
 
-
-
-
-
-
 ## PUT /user/:userId/profile (Authentication and Authorization required)
 - Allow an user to update their profile.
 - A user can update all the fields
@@ -207,6 +204,12 @@
 
 Note: [Bcrypt](https://www.npmjs.com/package/bcrypt)
 Send [form-data](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
+
+
+
+
+
+
 
 ## FEATTURE II - Product
 ### Models

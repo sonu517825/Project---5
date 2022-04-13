@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs")
 
 
+
 const setEncription = async function (password) {
     try {
 
@@ -19,4 +20,30 @@ const setEncription = async function (password) {
 
 
 
+
+
+
+const matchEncription = async function (password , passwordHash) {
+    try {
+
+        password = password.trim()
+        
+
+        const matchPassword = await bcrypt.compare(password, passwordHash)
+        return matchPassword
+        
+
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
+
+
+
+
+
+
 module.exports.setEncription = setEncription
+module.exports.matchEncription=matchEncription

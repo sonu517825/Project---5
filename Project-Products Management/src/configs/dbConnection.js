@@ -15,7 +15,7 @@ const connection = async function () {
 
 
             .then(pass => console.log(`MongoDb is connected , Database Name "${pass.connections[0].name}"`))
-            .catch(err => console.log(err.message))
+            .catch(err => console.log(err))
 
     }
     catch (err) {

@@ -1,7 +1,8 @@
 const express = require("express")
 const router = express.Router()
 const userController = require("../controllers/userController")
-
+const authorization = require("../middlewear/authorization")
+const authuntication = require("../middlewear/authuntication")
 
 
 
@@ -15,7 +16,20 @@ router.post("/register" , userController.registerUser)
 
 
 
-router.get("/user/:userId/profile",userController.getUser)
+router.post("/login" , userController.loginUser)
+
+
+
+router.get("/user/:userId/profile",authuntication.authentication,  userController.getUser)
+
+
+
+router.put("/user/:userId/profile",authuntication.authentication,
+authorization.authorization ,
+userController.updateProfile)
+
+
+
 
 
 module.exports = router
