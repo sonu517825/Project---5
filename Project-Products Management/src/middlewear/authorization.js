@@ -1,4 +1,4 @@
-const validator = require("../validator/validator")
+const validator = require("../validator/userValidator")
 const userModel = require("../models/userModel")
 
 

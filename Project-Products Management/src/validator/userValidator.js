@@ -25,7 +25,7 @@ const isStrictString = function (value) {
     let flag = 0
     value = value.trim()
     for (let i = 0; i < value.length; i++)
-        if ((value.charCodeAt(i) >= 97 && value.charCodeAt(i) <= 122) || (value.charCodeAt(i) >= 65 && value.charCodeAt(i) <= 90)) flag++
+        if ((value.charCodeAt(i) >= 97 && value.charCodeAt(i) <= 122) || (value.charCodeAt(i) >= 65 && value.charCodeAt(i) <= 90) || (value.charCodeAt(i)==32) ) flag++
     if (flag !== value.length) return false
     return true
 }

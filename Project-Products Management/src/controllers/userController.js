@@ -1,5 +1,5 @@
 const userModel = require("../models/userModel")
-const validator = require("../validator/validator")
+const validator = require("../validator/userValidator")
 const awsConnection = require("../configs/awsConnection")
 const setEncription = require("../configs/encryption")
 const generateToken = require("../middlewear/generateToken")

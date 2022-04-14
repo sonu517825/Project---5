@@ -239,8 +239,37 @@ Send [form-data](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
 - Create a product document from request body.
 - Upload product image to S3 bucket and save image public url in document.
 - __Response format__
-  - _**On success**_ - Return HTTP status 201. Also return the product document. The response should be a JSON object like [this](#successful-response-structure)
+  - _**On success**_ - Return HTTP status 201. Also return the product document. The response should be a JSON object  like [this](#successful-response-structure)
   - _**On error**_ - Return a suitable error message with a valid HTTP status code. The response should be a JSON object like [this](#error-response-structure)
+
+
+
+
+### products
+```yaml
+{
+  _id: ObjectId("88abc190ef0288abc190ef55"),
+  title: 'Nit Grit',
+  description: 'Dummy description',
+  price: 23.0,
+  currencyId: 'INR',
+  currencyFormat: '₹',
+  isFreeShipping: false,
+  productImage: 'http://function-up-test.s3.amazonaws.com/products/product/nitgrit.jpg',  // s3 link
+  style: 'Colloar',
+  availableSizes: ["S", "XS","M","X", "L","XXL", "XL"],
+  installments: 5,
+  deletedAt: null, 
+  isDeleted: false,
+  createdAt: "2021-09-17T04:25:07.803Z",
+  updatedAt: "2021-09-17T04:25:07.803Z",
+}
+```
+
+
+
+
+
 
 ### GET /products
 - Returns all products in the collection that aren't deleted.
@@ -258,11 +287,17 @@ Send [form-data](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
   - _**On success**_ - Return HTTP status 200. Also return the product documents. The response should be a JSON object like [this](#successful-response-structure)
   - _**On error**_ - Return a suitable error message with a valid HTTP status code. The response should be a JSON object like [this](#error-response-structure)
 
+
+
+
 ### GET /products/:productId
 - Returns product details by product id
 - __Response format__
   - _**On success**_ - Return HTTP status 200. Also return the product documents. The response should be a JSON object like [this](#successful-response-structure)
   - _**On error**_ - Return a suitable error message with a valid HTTP status code. The response should be a JSON object like [this](#error-response-structure)
+
+
+
 
 ### PUT /products/:productId
 - Updates a product by changing at least one or all fields
@@ -271,11 +306,20 @@ Send [form-data](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
   - _**On success**_ - Return HTTP status 200. Also return the updated product document. The response should be a JSON object like [this](#successful-response-structure)
   - _**On error**_ - Return a suitable error message with a valid HTTP status code. The response should be a JSON object like [this](#error-response-structure)
 
+
+
+
 ### DELETE /products/:productId
 - Deletes a product by product id if it's not already deleted
 - __Response format__
   - _**On success**_ - Return HTTP status 200. The response should be a JSON object like [this](#successful-response-structure)
   - _**On error**_ - Return a suitable error message with a valid HTTP status code. The response should be a JSON object like [this](#error-response-structure)
+
+
+
+
+
+
 
 
 
