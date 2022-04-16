@@ -2,6 +2,7 @@ const express = require("express")
 const app = express()
 const route = require("../routes/userRoute")
 const productRoute = require("../routes/productRoute")
+const cartRoute = require("../routes/cartRoute")
 const multer = require("multer")
 
 
@@ -14,6 +15,8 @@ const server = async function callback() {
         app.use(multer().any())
         app.use('/', route);
         app.use('/', productRoute)
+        app.use('/', cartRoute)
+
 
         const PORT = process.env.PORT || 3000
 

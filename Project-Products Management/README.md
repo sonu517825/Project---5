@@ -341,10 +341,20 @@ Send [form-data](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
 ```
 
 
+
 ## Cart APIs (_authentication required as authorization header - bearer token_)
+
+
+
 ### POST /users/:userId/cart (Add to cart)
 - Create a cart for the user if it does not exist. Else add product(s) in cart.
-- Get cart id in request body.
+- 
+
+//Get cart id in request body.
+
+
+
+
 - Get productId in request body.
 - Make sure that cart exist.
 - Add a product(s) for a user in the cart.
@@ -356,20 +366,38 @@ Send [form-data](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
   - _**On success**_ - Return HTTP status 201. Also return the cart document. The response should be a JSON object like [this](#successful-response-structure)
   - _**On error**_ - Return a suitable error message with a valid HTTP status code. The response should be a JSON object like [this](#error-response-structure)
 
+
+
+
 ### PUT /users/:userId/cart (Remove product / Reduce a product's quantity from the cart)
 - Updates a cart by either decrementing the quantity of a product by 1 or deleting a product from the cart.
+
+
 - Get cart id in request body.
+
+
 - Get productId in request body.
-- Get key 'removeProduct' in request body. 
+- Get key 'removeProduct' in request body.
+
+
 - Make sure that cart exist.
 - Key 'removeProduct' denotes whether a product is to be removed({removeProduct: 0}) or its quantity has to be decremented by 1({removeProduct: 1}).
+
+
 - Make sure the userId in params and in JWT token match.
 - Make sure the user exist
 - Get product(s) details in response body.
+
+
 - Check if the productId exists and is not deleted before updating the cart.
+
+
 - __Response format__
   - _**On success**_ - Return HTTP status 200. Also return the updated cart document. The response should be a JSON object like [this](#successful-response-structure)
   - _**On error**_ - Return a suitable error message with a valid HTTP status code. The response should be a JSON object like [this](#error-response-structure)
+
+
+
 
 ### GET /users/:userId/cart
 - Returns cart summary of the user.
@@ -381,15 +409,37 @@ Send [form-data](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
   - _**On success**_ - Return HTTP status 200. Return the cart document. The response should be a JSON object like [this](#successful-response-structure)
   - _**On error**_ - Return a suitable error message with a valid HTTP status code. The response should be a JSON object like [this](#error-response-structure)
 
+
+
+
 ### DELETE /users/:userId/cart
 - Deletes the cart for the user.
+
+
 - Make sure that cart exist.
+
+
 - Make sure the userId in params and in JWT token match.
 - Make sure the user exist
+
+
 - cart deleting means array of items is empty, totalItems is 0, totalPrice is 0.
+
+
 - __Response format__
   - _**On success**_ - Return HTTP status 204. Return a suitable message. The response should be a JSON object like [this](#successful-response-structure)
   - _**On error**_ - Return a suitable error message with a valid HTTP status code. The response should be a JSON object like [this](#error-response-structure)
+
+
+
+
+
+
+
+
+
+
+
 
 
 

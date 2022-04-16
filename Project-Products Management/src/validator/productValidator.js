@@ -11,7 +11,8 @@ const isValidRequestBody = function (requestBody) {
 
 
 const isValidRequestValue = function (isValidRequestValue) {
-    if (typeof isValidRequestValue === 'undefined' || isValidRequestValue === 'null' || isValidRequestValue === 'undefined') return false
+
+    if (typeof isValidRequestValue === 'undefined' || isValidRequestValue === null || isValidRequestValue === 'undefined') return false
     if (typeof isValidRequestValue === 'string' && isValidRequestValue.trim().length === 0) return false
     return true
 }

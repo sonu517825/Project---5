@@ -492,7 +492,7 @@ const updateProduct = async function (req, res) {
 
 
         const requestBody = req.body
-        if (!validator.isValidRequestBody(requestBody)) return res.status(400).send({ status: false, msg: "please provide product updation details in form data of request body" })
+       
         let { title, description, price, currencyId, isFreeShipping, productImage, style, availableSizes, installments, isDeleted } = requestBody
         const updateProductData = {}
 
