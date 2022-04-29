@@ -1,12 +1,18 @@
 
-// //  *********      SONU VERMA         **********           SONU VERMA          ***********               SONU VERMA               ***********             //
+//  *********      SONU VERMA         **********           SONU VERMA          ***********               SONU VERMA               ***********             //
 
 
-const connection = require("../configs/dbConnection")
+require("dotenv").config()
 const server = require("../configs/server")
+const connection = require("../configs/dbConnection")
 
 
-server.server()
+
 connection.connection()
+server.server()
+
+
 
 // fiverr website par API update
+
+

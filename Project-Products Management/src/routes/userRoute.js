@@ -1,38 +1,43 @@
 const express = require("express")
 const router = express.Router()
-const userController = require("../controllers/userController")
-const authorization = require("../middlewear/authorization")
-const authuntication = require("../middlewear/authuntication")
+const { registerUser, loginUser, getUser, updateProfile, updatePassword,
+    forgetPassword, resetPassword, logoutUser } = require("../controllers/userController")
+const { authorization } = require("../middleware/authorization")
+const { authentication } = require("../middleware/authuntication")
 
 
 
-router.get("/test-me", function (req , res){
-    res.status(200).send("sonu first api")
-})
+
+router.route("/register")
+    .post(registerUser)
 
 
-
-router.post("/register" , userController.registerUser)
-
-
-
-router.post("/login" , userController.loginUser)
+router.route("/login")
+    .post(loginUser)
 
 
-
-router.get("/user/:userId/profile",authuntication.authentication,  userController.getUser)
-
-
-
-router.put("/user/:userId/profile",authuntication.authentication,
-authorization.authorization ,
-userController.updateProfile)
+router.route("/user/:userId/profile")
+    .get(authentication, getUser)
+    .put(authentication, authorization, updateProfile)
 
 
+router.route("/user/:userId/password/passwordupdate")
+    .put(authentication, authorization, updatePassword)
+
+
+router.route("/user/password/forgot")
+    .put(forgetPassword)
+
+
+router.route("/password/reset/:token")
+    .put(resetPassword)
+
+
+router.route("/user/:userId/logout")
+    .get(logoutUser)
 
 
 
 module.exports = router
-
 
 

@@ -466,15 +466,22 @@ Send [form-data](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
 ```
 
 
+
 ## Checkout/Order APIs (Authentication and authorization required)
 ### POST /users/:userId/orders
 - Create an order for the user
 - Make sure the userId in params and in JWT token match.
 - Make sure the user exist
+
+
 - Get cart details in the request body
+
+
 - __Response format__
   - _**On success**_ - Return HTTP status 200. Also return the order document. The response should be a JSON object like [this](#successful-response-structure)
   - _**On error**_ - Return a suitable error message with a valid HTTP status code. The response should be a JSON object like [this](#error-response-structure)
+
+
 
 ## PUT /users/:userId/orders
 - Updates an order status
@@ -486,6 +493,8 @@ Send [form-data](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
 - __Response format__
   - _**On success**_ - Return HTTP status 200. Also return the updated order document. The response should be a JSON object like [this](#successful-response-structure)
   - _**On error**_ - Return a suitable error message with a valid HTTP status code. The response should be a JSON object like [this](#error-response-structure)
+
+
 
 ## Testing 
 - To test these apis create a new collection in Postman named Project 5 Shopping Cart

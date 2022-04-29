@@ -34,6 +34,7 @@ const isStrictString = function (value) {
 
 
 
+
 const isNormalString = function (value) {
     let flag = 0
     value = value.trim()
@@ -42,6 +43,7 @@ const isNormalString = function (value) {
     if (flag === 0) return false
     return true
 }
+
 
 
 
@@ -70,12 +72,6 @@ const isValidPrice = function (price) {
 
 
 
-const isValidCurrency = function (currencyId) {
-
-    const currencyList = ['USD', 'BTC', 'INR', 'EUR']
-    return currencyList.includes(currencyId)
-
-}
 
 
 
@@ -101,6 +97,7 @@ const isValidAvailableSizes = function (availableSize) {
 
 
 }
+
 
 
 
@@ -137,12 +134,6 @@ const isValidInstallments = function (installments) {
 
 
 
-const isObjectId = function (ObjectId) {
-    return mongoose.isValidObjectId(ObjectId)
-}
-
-
-
 
 const isValidAvailableSizesForUpdate = function (availableSize, dbData) {
 
@@ -175,6 +166,8 @@ const isValidAvailableSizesForUpdate = function (availableSize, dbData) {
 
 
 
+
+
 const isValidPriceSort = function (priceSort) {
 
     if (priceSort != -1 && priceSort != 1) return false
@@ -185,16 +178,17 @@ const isValidPriceSort = function (priceSort) {
 
 
 
+
 module.exports = {
     isValidRequestBody,
     isValidRequestValue,
     isStrictString,
     isNormalString,
     isValidPrice,
-    isValidCurrency,
+   // isValidCurrency,
     isValidAvailableSizes,
     isValidInstallments,
-    isObjectId,
+  //  isObjectId,
     isValidAvailableSizesForUpdate,
     isValidPriceSort
 }

@@ -1,27 +1,41 @@
 const express = require("express")
 const router = express.Router()
-const productController = require("../controllers/productController")
+const { createProduct, getProductByFilter, getProductById, updateProduct, 
+    deleteProduct, createProductReview , getProductReviews , deleteReview } = require("../controllers/productController")
+const { authorization } = require("../middleware/authorization")
+const { authentication } = require("../middleware/authuntication")
+
+
+
+router.route("/user/:userId/products")
+    .post(authentication, authorization, createProduct)
+
+
+
+router.route("/products")
+    .get(getProductByFilter)
+
+
+
+router.route("/products/:productId")
+    .get(getProductById)
+
+
+
+router.route("/user/:userId/products/:productId")
+    .put(authentication, authorization, updateProduct)
+    .delete(authentication, authorization, deleteProduct)
 
 
 
 
-router.post("/products",productController.createProduct)
+router.route("/user/:userId/review")
+    .put(authentication, authorization , createProductReview)
+    .delete(authentication, authorization, deleteReview);
 
 
-
-router.get("/products",productController.getProductByFilter)
-
-
-
-router.get("/products/:productId",productController.getProductById)
-
-
-
-router.put("/products/:productId",productController.updateProduct)
-
-
-
-router.delete("/products/:productId",productController.deleteProduct)
+router.route("/reviews")
+    .get(getProductReviews)
 
 
 

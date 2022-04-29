@@ -1,38 +1,25 @@
-const express = require("express")
-const app = express()
-const route = require("../routes/userRoute")
-const productRoute = require("../routes/productRoute")
-const cartRoute = require("../routes/cartRoute")
-const multer = require("multer")
+const app = require("./app")
 
 
-const server = async function callback() {
-    try {
+const server = async function () {
 
 
-        app.use(express.json({ extended: true }))
-        app.use(express.urlencoded({ extended: true }))
-        app.use(multer().any())
-        app.use('/', route);
-        app.use('/', productRoute)
-        app.use('/', cartRoute)
+    const buildServer = app.listen(process.env.PORT, (err) => {
+        if (err) console.log(err.message)
+        console.log(`Server is running on ${process.env.HOST}${process.env.PORT}`);
+    });
 
 
-        const PORT = process.env.PORT || 3000
-
-
-        app.listen(PORT, function callback(err) {
-            if (err) console.log(err)
-            console.log("Server listening on Port", PORT)
-        })
-    }
-
-
-    catch (err) {
-        console.log(err)
-        process.exit(1)
-    }
+    // Unhandled Promise Rejection  // connection string currupt
+    process.on("unhandledRejection", (err) => {
+        console.log(`Error: ${err.message}`, err,);
+        console.log(`Shutting down the server due to Unhandled Promise Rejection`);
+        buildServer.close(() => {
+            process.exit(1);
+        });
+    });
 }
+
 
 
 module.exports.server = server

@@ -1,20 +1,21 @@
-const pincodeValidator = require('pincode-validator');
 const mongoose= require("mongoose")
-
 
 
 
 const isValidRequestBody = function (requestBody) {
     return Object.keys(requestBody).length > 0
+
 }
 
 
 
 
 const isValidRequestValue = function (isValidRequestValue) {
-    if (typeof isValidRequestValue === 'undefined' || isValidRequestValue === null || isValidRequestValue === 'undefined') return false
+
+    if (typeof isValidRequestValue === 'undefined' || isValidRequestValue === null || isValidRequestValue === 'null' || isValidRequestValue === 'undefined') return false
     if (typeof isValidRequestValue === 'string' && isValidRequestValue.trim().length === 0) return false
     return true
+
 }
 
 
@@ -32,11 +33,13 @@ const isStrictString = function (value) {
 
 
 
+
 const isValidEmail = function (email) {
     email = email.trim()
     let regexForEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     return regexForEmail.test(email)
 };
+
 
 
 
@@ -57,6 +60,7 @@ const isValidPassword = function (password) {
 
 
 
+
 const isValidAddress = async function (address) {
     try {
         return await JSON.parse(address)
@@ -66,6 +70,7 @@ const isValidAddress = async function (address) {
         if (err) return false
     }
 }
+
 
 
 
